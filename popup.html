@@ -3,20 +3,24 @@
     <head>
         <style>
             a {
-                border: 1px solid #eee;
+                box-shadow: 0 0 1px 1px #444;
+                overflow: hidden;
+                color: white;
                 margin: 0;
                 padding: 5px 10px;
                 height: 30px;
                 line-height: 30px;
                 outline: 0;
                 display: block;
-                background: white;
+                background: #444;
                 cursor: pointer;
                 width: 150px;
                 position: relative;
+                margin-top: 10px;
+                border-radius: 5px;
             }
             a:hover {
-                background: #eee;
+                background: #444;
             }
             a::after {
                 content: 'Off';
@@ -28,7 +32,7 @@
                 width: 40px;
                 line-height: 40px;
                 text-align: center;
-                border-left: 1px solid #eee;
+                border-left: 1px solid #444;
                 background: #C53434;
             }
             a.active {
