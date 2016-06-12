@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+    <head>
+        <style>
+            a {
+                border: 1px solid #eee;
+                margin: 0;
+                padding: 5px 10px;
+                height: 30px;
+                line-height: 30px;
+                outline: 0;
+                display: block;
+                background: white;
+                cursor: pointer;
+                width: 150px;
+                position: relative;
+            }
+            a:hover {
+                background: #eee;
+            }
+            a::after {
+                content: 'Off';
+                position: absolute;
+                color: white;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                width: 40px;
+                line-height: 40px;
+                text-align: center;
+                border-left: 1px solid #eee;
+                background: #C53434;
+            }
+            a.active {
+
+            }
+            a.active::after {
+                content: 'On';
+                background: #56B956;
+            }
+        </style>
+    </head>
+    <body>
+        <section>
+            <a id="auto-click"><span>Auto Click</span></a>
+            <a id="auto-bonus"><span>Auto Bonus</span></a>
+            <a id="auto-upgrade"><span>Auto Upgrade</span></a>
+        </section>
+        <script src="popup.js"></script>
+    </body>
+</html>
