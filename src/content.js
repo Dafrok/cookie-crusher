@@ -18,6 +18,7 @@ function upgrade() {
 }
 
 function toggleAutoClick (bool) {
+    console.log('Go!')
     if (typeof timers.autoClick !== null) {
         timers.autoClick = null
     } else {
@@ -40,3 +41,7 @@ function toggleAutoUpgrade (bool) {
         timers.autoUpgrade = setInterval(upgrade, 5000)
     }
 }
+
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+    console.log(request);
+});

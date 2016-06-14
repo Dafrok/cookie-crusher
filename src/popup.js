@@ -14,6 +14,7 @@ var btnAutoUpgrade = getDOM('#auto-upgrade')
 
 btnAutoClick.onclick = function () {
     if (flags.autoClick) {
+        chrome.tabs.executeScript(null, {code: 'toggleAutoClick()', allFrames: true});
         btnAutoClick.classList.remove('active')
     } else {
         btnAutoClick.classList.add('active')
