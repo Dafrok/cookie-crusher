@@ -7,25 +7,37 @@ function getDOM(id) {
 }
 
 var flags = {
-    autoClick: false,
-    autoBonus: false,
-    autoUpgrade: false
+    autoClick: false, // !!localStorage.getItem('autoClick'),
+    autoBonus: false, // !!localStorage.getItem('autoBonus'),
+    autoUpgrade: false //!!localStorage.getItem('autoUpgrade')
 }
 
 var btnAutoClick = getDOM('#auto-click')
 var btnAutoBonus = getDOM('#auto-bonus')
 var btnAutoUpgrade = getDOM('#auto-upgrade')
 
+// function initBtn(btn, name) {
+//     if (flags[name]) {
+//         btn.classList.add('active')
+//     } else {
+//         btn.classList.remove('active')
+//     }
+// }
+
+// initBtn(btnAutoClick, 'autoClick')
+// initBtn(btnAutoBonus, 'autoBonus')
+// initBtn(btnAutoUpgrade, 'autoUpgrade')
+
 btnAutoClick.onclick = function () {
     conn.postMessage('auto-click')
-    // if (flags.autoClick) {
-    //     chrome.tabs.executeScript(null, {code: 'toggleAutoClick()', allFrames: true});
-    //     btnAutoClick.classList.remove('active')
-    // } else {
-    //     chrome.tabs.executeScript(null, {code: 'toggleAutoClick()', allFrames: true});
-    //     btnAutoClick.classList.add('active')
-    // }
-    // flags.autoClick = !flags.autoClick
+    if (flags.autoClick) {
+        // localStorage.setItem('autoClick', '')
+        btnAutoClick.classList.remove('active')
+    } else {
+        // localStorage.setItem('autoClick', 'true')
+        btnAutoClick.classList.add('active')
+    }
+    flags.autoClick = !flags.autoClick
 }
 
 btnAutoBonus.onclick = function () {

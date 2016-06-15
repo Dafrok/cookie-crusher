@@ -3,6 +3,8 @@ chrome.runtime.onMessage.addListener(function (msg) {
 })
 chrome.runtime.sendMessage('Message from content.js')
 
+document.getElementById('support').remove()
+
 var bigCookie = document.getElementById('bigCookie')
 var timers = {
     autoClick: null,
@@ -23,6 +25,7 @@ function upgrade() {
 }
 
 function toggleAutoClick (bool) {
+    console.log('Auto click.')
     if (typeof bool === 'undefined' ? timers.autoClick !== null : bool) {
         clearInterval(timers.autoClick)
         timers.autoClick = null

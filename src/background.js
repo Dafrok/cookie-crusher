@@ -1,7 +1,5 @@
 chrome.runtime.onConnect.addListener(function (port) {
-    console.log(port)
     port.onMessage.addListener(function (msg) {
-        console.log(msg)
         switch (msg) {
             case 'auto-click':
                 chrome.tabs.executeScript({code: 'toggleAutoClick()'})
@@ -14,4 +12,7 @@ chrome.runtime.onConnect.addListener(function (port) {
                 break
         }
     })
+    port.onError
 })
+
+console.log(localStorage.getItem('auto-click'))
