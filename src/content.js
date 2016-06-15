@@ -18,10 +18,10 @@ function upgrade() {
 }
 
 function toggleAutoClick (bool) {
-    console.log('Go!')
-    if (typeof timers.autoClick !== null) {
+    if (typeof bool === 'undefined' ? timers.autoClick !== null : bool) {
+        clearInterval(timers.autoClick)
         timers.autoClick = null
-    } else {
+    } else if (typeof bool === 'undefined' ? timers.autoClick === null : bool){
         timers.autoClick = setInterval(oneClick, 1, bigCookie)
     }
 }

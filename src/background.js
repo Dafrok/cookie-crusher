@@ -1,11 +1,10 @@
-chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
-    initialize(tabId)
-})
-
-chrome.tabs.onSelectionChanged.addListener(function(tabId, selectInfo) {
-    initialize(tabId)
-})
-
-function initialize(tabId){
+chrome.tabs.onCreated (function (tabId) {
     chrome.tabs.executeScript(tabId, {file: "content.js", allFrames: true})
-}
+})
+
+// chrome.runtime.onConnect.addListener(function (port) {
+//     console.log(port)
+//     port.onMessage.addListener(function (msg) {
+//         console.log(msg)
+//     })
+// })

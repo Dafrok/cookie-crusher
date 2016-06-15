@@ -17,6 +17,7 @@ btnAutoClick.onclick = function () {
         chrome.tabs.executeScript(null, {code: 'toggleAutoClick()', allFrames: true});
         btnAutoClick.classList.remove('active')
     } else {
+        chrome.tabs.executeScript(null, {code: 'toggleAutoClick()', allFrames: true});
         btnAutoClick.classList.add('active')
     }
     flags.autoClick = !flags.autoClick
