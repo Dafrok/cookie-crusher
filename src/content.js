@@ -1,3 +1,8 @@
+chrome.runtime.onMessage.addListener(function (msg) {
+    console.log(msg)
+})
+chrome.runtime.sendMessage('Message from content.js')
+
 var bigCookie = document.getElementById('bigCookie')
 var timers = {
     autoClick: null,
@@ -41,7 +46,3 @@ function toggleAutoUpgrade (bool) {
         timers.autoUpgrade = setInterval(upgrade, 5000)
     }
 }
-
-chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-    console.log(request);
-});

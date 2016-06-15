@@ -1,3 +1,7 @@
+var conn = chrome.runtime.connect({
+    name: "CookieCrusher"
+})
+
 function getDOM(id) {
     return document.querySelector(id)
 }
@@ -13,14 +17,15 @@ var btnAutoBonus = getDOM('#auto-bonus')
 var btnAutoUpgrade = getDOM('#auto-upgrade')
 
 btnAutoClick.onclick = function () {
-    if (flags.autoClick) {
-        chrome.tabs.executeScript(null, {code: 'toggleAutoClick()', allFrames: true});
-        btnAutoClick.classList.remove('active')
-    } else {
-        chrome.tabs.executeScript(null, {code: 'toggleAutoClick()', allFrames: true});
-        btnAutoClick.classList.add('active')
-    }
-    flags.autoClick = !flags.autoClick
+    conn.postMessage('auto-click')
+    // if (flags.autoClick) {
+    //     chrome.tabs.executeScript(null, {code: 'toggleAutoClick()', allFrames: true});
+    //     btnAutoClick.classList.remove('active')
+    // } else {
+    //     chrome.tabs.executeScript(null, {code: 'toggleAutoClick()', allFrames: true});
+    //     btnAutoClick.classList.add('active')
+    // }
+    // flags.autoClick = !flags.autoClick
 }
 
 btnAutoBonus.onclick = function () {
